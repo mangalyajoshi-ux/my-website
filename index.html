@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -31,20 +31,24 @@
     h1 {
       font-size: 2.2rem;
       margin-top: 20px;
-      animation: slideUp 1s ease;
+    }
+
+    .typing {
+      font-size: 1.3rem;
+      color: #00ffcc;
+      height: 30px;
+      margin-top: 10px;
     }
 
     h2 {
       margin-top: 40px;
       color: #bbbbbb;
-      animation: slideUp 1.2s ease;
     }
 
     p {
       max-width: 600px;
       margin: auto;
       line-height: 1.6;
-      animation: slideUp 1.4s ease;
     }
 
     .contact {
@@ -55,28 +59,12 @@
     .contact a {
       color: #00ffcc;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .contact a:hover {
-      color: white;
     }
 
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
     }
 
     @keyframes zoomIn {
@@ -100,10 +88,13 @@
 
     <h1>Mangalya Joshi</h1>
 
+    <!-- Typing Effect -->
+    <div class="typing" id="typing"></div>
+
     <h2>About Me</h2>
     <p>
       I am a student learning web development.
-      This is my personal portfolio website created using HTML and CSS
+      This is my personal portfolio website created using HTML, CSS and JavaScript
       and hosted online using GitHub Pages.
     </p>
 
@@ -115,8 +106,41 @@
 
   </div>
 
+  <!-- Typing Script -->
+  <script>
+    const texts = [
+      "Web Developer",
+      "Student",
+      "Learning HTML, CSS & JavaScript"
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+
+    (function type() {
+      if (count === texts.length) {
+        count = 0;
+      }
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+
+      document.getElementById("typing").textContent = letter;
+
+      if (letter.length === currentText.length) {
+        setTimeout(() => {
+          index = 0;
+          count++;
+        }, 1500);
+      }
+
+      setTimeout(type, 120);
+    })();
+  </script>
+
 </body>
 </html>
-
+ 
 
 
