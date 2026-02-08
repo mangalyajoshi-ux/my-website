@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,6 +68,26 @@
       text-decoration: none;
     }
 
+    /* PARALLAX SECTION */
+    .parallax {
+      background-image: url("parallax.jpg");
+      min-height: 300px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parallax h2 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 10px;
+      color: white;
+    }
+
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -91,6 +110,13 @@
       50% { opacity: 0; }
       100% { opacity: 1; }
     }
+
+    /* Mobile fix (parallax off on phones) */
+    @media (max-width: 768px) {
+      .parallax {
+        background-attachment: scroll;
+      }
+    }
   </style>
 </head>
 
@@ -98,18 +124,23 @@
 
   <div class="container">
 
-    <!-- Profile Photo -->
     <img src="photo.jpg" alt="Mangalya Joshi">
 
-    <!-- Name -->
     <h1>Mangalya Joshi</h1>
 
-    <!-- Typing Effect -->
     <div class="typing">
       <span id="typing"></span><span class="cursor">|</span>
     </div>
 
-    <!-- About -->
+  </div>
+
+  <!-- PARALLAX SECTION -->
+  <div class="parallax">
+    <h2>Welcome to My Portfolio</h2>
+  </div>
+
+  <div class="container">
+
     <h2>About Me</h2>
     <p>
       I am a student learning web development.
@@ -117,7 +148,6 @@
       and hosted online using GitHub Pages.
     </p>
 
-    <!-- Contact -->
     <h2>Contact</h2>
     <div class="contact">
       📧 Email:
@@ -162,3 +192,5 @@
 
 </body>
 </html>
+  
+
