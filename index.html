@@ -1,4 +1,5 @@
-   <!DOCTYPE html>
+  
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -40,6 +41,13 @@
       margin-top: 10px;
     }
 
+    .cursor {
+      display: inline-block;
+      margin-left: 5px;
+      animation: blink 1s infinite;
+      color: #00ffcc;
+    }
+
     h2 {
       margin-top: 40px;
       color: #bbbbbb;
@@ -77,6 +85,12 @@
         opacity: 1;
       }
     }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 
@@ -84,13 +98,18 @@
 
   <div class="container">
 
+    <!-- Profile Photo -->
     <img src="photo.jpg" alt="Mangalya Joshi">
 
+    <!-- Name -->
     <h1>Mangalya Joshi</h1>
 
     <!-- Typing Effect -->
-    <div class="typing" id="typing"></div>
+    <div class="typing">
+      <span id="typing"></span><span class="cursor">|</span>
+    </div>
 
+    <!-- About -->
     <h2>About Me</h2>
     <p>
       I am a student learning web development.
@@ -98,6 +117,7 @@
       and hosted online using GitHub Pages.
     </p>
 
+    <!-- Contact -->
     <h2>Contact</h2>
     <div class="contact">
       📧 Email:
@@ -106,7 +126,7 @@
 
   </div>
 
-  <!-- Typing Script -->
+  <!-- Typing Effect Script -->
   <script>
     const texts = [
       "Web Developer",
@@ -123,6 +143,7 @@
       if (count === texts.length) {
         count = 0;
       }
+
       currentText = texts[count];
       letter = currentText.slice(0, ++index);
 
@@ -141,6 +162,3 @@
 
 </body>
 </html>
- 
-
-
